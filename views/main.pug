@@ -1,0 +1,50 @@
+html
+  head
+    title=title
+    link(
+      href='/pick-name/static/css/bootstrap.min.css',
+      rel='stylesheet'
+    )
+    link(
+      href='/pick-name/static/css/styles.css',
+      rel='stylesheet'
+    )
+  body
+    div.container.pt-4
+
+      div.page-header
+        h2 Pick a name for a kid
+
+      if errors
+        each error in errors
+          div.alert.alert-danger
+            span #{error.error}
+
+      form.login-form.form-horizontal
+
+        div.form-group
+          label.col-sm-4 Choose sex
+          div.col-sm-8
+
+             select.form-control
+                 option Boy
+                 option Girl
+                 option(selected='selected') Don't know
+
+        div.form-group
+          label.col-sm-4 Choose country
+          div.col-sm-8
+
+            select.form-control
+                option The Netherlands
+                option U.S.
+                option Ukraine
+                option(selected='selected') International
+
+        div.form-group
+            div.col-sm-8
+                button.btn.btn-info(type="button") Search
+
+
+        div.pull-right
+          a(href="/pick-name/") Return to home page
